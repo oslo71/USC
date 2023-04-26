@@ -102,21 +102,10 @@ def main(fold_name):
     #
     parser.add_argument('--out', default=f'outputs_stas_jinshan_plus_consistency', help='directory to output the result')
 
-    # parser.add_argument('--gpu-id', default='0', type=int,
-    #                     help='id(s) for CUDA_VISIBLE_DEVICES')
-    # parser.add_argument('--num-workers', type=int, default=4,
-    #                     help='number of workers')
-    #
     parser.add_argument('--dataset', default='stas_ningbo_jinshan_plus', type=str,  # --dataset "cifar10"
                         help='dataset names')
-    #
     parser.add_argument('--n-lbl', type=int, default=25,  # 此处为百分比
                         help='number of labeled data')
-    parser.add_argument('--num-labeled', type=int, default=4000,  # CIFAR-10 训练集中每个类别10000张
-                        help='number of labeled data')
-    parser.add_argument("--expand-labels", action="store_true",
-                        help="expand labels to fit eval steps")
-    #
     parser.add_argument('--arch', default='cnndense64', type=str,  # --arch "cnn13"
                         choices=['wideresnet', 'cnn13', 'shakeshake', 'cnnres64', 'cnndense64'],
                         help='architecture name')
@@ -126,8 +115,6 @@ def main(fold_name):
                         help='number of total epochs to run')
     parser.add_argument('--split-txt', default=fold_name, type=str,  # --split-txt "run1"
                         help='use which part of the lbl data')
-    parser.add_argument('--cal-c-u-step', default=10, type=int,
-                        help='number of eval steps to run')
     parser.add_argument('--start-epoch', default=0, type=int,
                         help='manual epoch number (useful on restarts)')
     parser.add_argument('--batch-size', default=16, type=int,
